@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
-  resources :road_trips
-  root 'road_trips#index'
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
+  
+  
+  root 'trips#index'
 
 
 
