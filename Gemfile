@@ -26,7 +26,7 @@ gem 'devise'
 gem 'haml-rails', '~> 0.9'
 gem 'rspec-rails', '~> 3.0'
 gem 'materialize-sass'
-
+gem 'omniauth-facebook'
 
 
 # Use ActiveModel has_secure_password
