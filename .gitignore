@@ -12,3 +12,4 @@
 !/log/.keep
 /tmp
 /coverage
+/config/google_map_api.yml

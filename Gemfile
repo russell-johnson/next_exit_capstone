@@ -26,6 +26,8 @@ gem 'devise'
 gem 'haml-rails', '~> 0.9'
 gem 'rspec-rails', '~> 3.0'
 gem 'materialize-sass'
+gem 'geocoder'
+gem 'google_directions'
 
 
 

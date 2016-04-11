@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  root 'trips#index'
+  resources :road_trips
+  root 'road_trips#index'
 
 
 
