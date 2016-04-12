@@ -14,5 +14,6 @@
 /coverage
 /config/google_map_api.yml
 config/facebook_omniauth_creds.yml
+config/mail.yml
 db/schema.rb
 
