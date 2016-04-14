@@ -13,7 +13,7 @@
  <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Next Exit</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul id="nav-mobile" class="right">
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -36,7 +36,7 @@
         <div class='center'>
           <div class="col s12">
             <p class="grey-text text-lighten-4">We appreciate all the help we have received from <a href="http://www.devpointlabs.com/" target="_blank">DevPoint Labs!</a></p>
-              <a class="grey-text text-lighten-3" href="/about_us/index">About Us / </a> <a class="grey-text text-lighten-3" href="#!">Careers</a>
+              <a class="grey-text text-lighten-3" href="/about_us/index">About Us / </a> <a class="grey-text text-lighten-3" href="/">Careers at NextExit / </a><a class="grey-text text-lighten-3" href="/">Contact Us</a>
           </div>
         </div>
       </div>
