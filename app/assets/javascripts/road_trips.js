@@ -60,6 +60,7 @@ $(document).ready(function() {
         var path = result.routes[0].overview_path;
         var boxes = routeBoxer.box(path, distance);
         drawBoxes(boxes);
+        getBoxes(boxes);
       } else {
         alert("Directions query failed: " + status);
       }
@@ -78,7 +79,32 @@ $(document).ready(function() {
         strokeWeight: 1,
         map: map
       });
+
     }
+
+  }
+
+  //   // Draw the array of boxes as polylines on the map
+  function getBoxes(boxes) {
+
+    let centerCord = []
+    let wayPointer = []
+    for (var i = 0; i < boxes.length; i++) {
+
+      var northeast = boxes[i].getNorthEast();
+      var southwest = boxes[i].getSouthWest();
+      centerCord.push( {
+        latitude: ((northeast.lat()+southwest.lat())/2),
+        longitude: ((northeast.lng()+ southwest.lng())/2) 
+      });        
+    }
+
+    for (var i = 0; i < centerCord.length; i++){
+      
+    }
+    debugger;
+    return centerCord;
+    return wayPointer;
   }
 
   // Clear boxes currently on the map
