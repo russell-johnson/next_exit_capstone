@@ -51,7 +51,7 @@ class RoadTrips extends React.Component {
       </div>
     );
   }
-
+}
 // class RoadTrips extends React.Component {
 //   constructor(props) {
 //     super(props)
@@ -136,4 +136,3 @@ class RoadTrips extends React.Component {
   //   }
   //   this.setState({origin: origin, destination: destination})
   // }
->>>>>>> dd8dcda2eb2bd638eff981687766d2d50b628fb3
