@@ -6,14 +6,27 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+ <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Next Exit</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Login', user_session_path %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<% if user_signed_in? %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-<% end %>
 
 <%= yield %>
 
