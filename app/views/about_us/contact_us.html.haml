@@ -1,17 +1,17 @@
-%form#contact_form{:action => "#", :class => "container", :enctype => "multipart/form-data", :method => "POST"}
-  .row
-    %label{:for => "name"} Your name:
+%form
+  .row.container.input-field
+    %label{:for => "name"} Your name
     %br/
     %input#name.input{:name => "name", :size => "30", :type => "text", :value => ""}/
     %br/
-  .row
-    %label{:for => "email"} Your email:
+  .row.container.input-field
+    %label{:for => "email"} Your email
     %br/
     %input#email.input{:name => "email", :size => "30", :type => "text", :value => ""}/
     %br/
-  .row
-    %label{:for => "message"} Your message:
+  .row.container
     %br/
-    %textarea#message.input{:cols => "30", :name => "message", :rows => "7"}
+    %textarea#message.input{:cols => "30", :name => "message", :placeholder => "Your message", :rows => "7"}
     %br/
-  %input#submit_button{:type => "submit", :value => "Send email"}/
+    %br/
+    %input#submit_button.btn{:type => "submit", :value => "Send email"}/
