@@ -3,5 +3,5 @@ begin
     ENV[key] = value
   end
 rescue
-  raise 'No google_api_map file found in config dir!'
+  raise 'No google_map_api file found in config dir!'
 end
