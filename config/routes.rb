@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'about_us/parker'
 
+  get 'about_us/contact_us'
+
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
 

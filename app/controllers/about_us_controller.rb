@@ -13,4 +13,7 @@ class AboutUsController < ApplicationController
 
   def parker
   end
+
+  def contact_us
+  end
 end
