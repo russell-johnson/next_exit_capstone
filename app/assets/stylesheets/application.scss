@@ -1,5 +1,6 @@
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
+$secondary-color: #013159 !default;
 @import 'materialize';
 
 body {
@@ -13,13 +14,13 @@ main {
 }
 
 // NAVBARS
-.nav-wrapper{
+.nav-wrapper {
   background-color: #02734A;
 }
 
 // FOOTER
-#footer{
-  background: none repeat 0 0 #02734A;
+#footer {
+  background-color: #02734A;
 }
 
 // FORM
