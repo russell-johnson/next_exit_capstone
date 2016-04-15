@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   root 'road_trips#index'
 
+  post '/waypoints', to: 'road_trips#waypoints'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
