@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'about_us/index'
 
+  post '/waypoints', to: 'road_trips#waypoints'
+
   get 'about_us/todd'
 
   get 'about_us/jacob'
