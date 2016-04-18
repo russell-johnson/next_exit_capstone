@@ -99,32 +99,32 @@ $(document).ready(function() {
         var southwest = boxes[i].getSouthWest();
         centerCord.push({
           latitude: ((northeast.lat()+southwest.lat())/2),
-          longitude: ((northeast.lng()+ southwest.lng())/2) 
-        });        
+          longitude: ((northeast.lng()+ southwest.lng())/2)
+        });
       }
       return centerCord;
   }
 
   var Rm = 3961; // mean radius of the earth (miles) at 39 degrees from the equator
-  var Rk = 6373; // mean radius of the earth (km) at 39 degrees from the equator      
+  var Rk = 6373; // mean radius of the earth (km) at 39 degrees from the equator
   /* main function */
   function findDistance(centerCord, userStops) {
     var waypoints = [];
     var x = 0;
     let distanceCounter = 0;
     for (var i = 0; i < centerCord.length; i++) {
-      
-      x = (i + 1); // this is to catch the next iteration    
+
+      x = (i + 1); // this is to catch the next iteration
       distanceCounter += mathMatics(centerCord, i, x);
-      
+
       if (i == centerCord.length-2) {// catching the last box of the array and adding it as the destination waypoint
         waypoints.push(centerCord[i + 1])
         break
       }
-      else if ((distanceCounter == userStops) || ((distanceCounter < userStops) && 
+      else if ((distanceCounter == userStops) || ((distanceCounter < userStops) &&
         ((distanceCounter + mathMatics(centerCord, x , (x + 1))) > userStops))){ // price is right style waypoint adding
         waypoints.push(centerCord[i])
-        distanceCounter = 0 
+        distanceCounter = 0
       }
     }
     return waypoints;
@@ -132,21 +132,21 @@ $(document).ready(function() {
 
 
   function mathMatics(centerCord, i , x){
-    var lat1, lon1, lat2, lon2, dlat, dlon, a, c, dm, dk, mi, km; 
+    var lat1, lon1, lat2, lon2, dlat, dlon, a, c, dm, dk, mi, km;
       lat1 = deg2rad(centerCord[i].latitude);
       lon1 = deg2rad(centerCord[i].longitude);
       lat2 = deg2rad(centerCord[x].latitude);
       lon2 = deg2rad(centerCord[x].longitude);
-      
+
       // find the differences between the coordinates
       dlat = lat2 - lat1;
       dlon = lon2 - lon1;
-      
+
       // here's the heavy lifting
       a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(dlon/2),2);
       c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
       dm = c * Rm; // great circle distance in miles
-      
+
       // round the results down to the nearest 1/1000
       mi = round(dm);
       km = round(dk);
