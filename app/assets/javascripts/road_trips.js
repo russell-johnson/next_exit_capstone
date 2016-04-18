@@ -45,7 +45,7 @@ $(document).ready(function() {
     clearBoxes();
 
     // Convert the distance to box around the route from miles to km
-    distance = parseFloat(document.getElementById("distance").value) * 1.609344;
+    distance = .25 * 1.609344;
 
     var request = {
       origin: document.getElementById("from").value,
@@ -64,7 +64,7 @@ $(document).ready(function() {
         // getBoxes(boxes);
         let waypoints = [];
         let centerCord = [];
-        let userStops = 100;
+        let userStops = 300;
         centerCord = getBoxes(boxes)
         waypoints = findDistance(centerCord, userStops);
         waypointSender(waypoints);
@@ -116,18 +116,40 @@ $(document).ready(function() {
       
       x = (i + 1); // this is to catch the next iteration    
       distanceCounter += mathMatics(centerCord, i, x);
+      console.log(distanceCounter);
       
-      if (i == centerCord.length-2) {// catching the last box of the array and adding it as the destination waypoint
-        waypoints.push(centerCord[i + 1])
+      if (i == centerCord.length-2){// catching the last box of the array and adding it as the destination waypoint
+        waypoints.push(centerCord[i + 1]);
+        distanceCounter = 0;
+        debugger;
         break
       }
+      else if (i == 0) { // catching the origin of a route
+        waypoints.push(centerCord[i]);
+        distanceCounter = 0;
+        debugger;
+      }
+
       else if ((distanceCounter == userStops) || ((distanceCounter < userStops) && 
         ((distanceCounter + mathMatics(centerCord, x , (x + 1))) > userStops))){ // price is right style waypoint adding
-        waypoints.push(centerCord[i])
-        distanceCounter = 0 
+        
+        waypoints.push(centerCord[i]);
+        console.log(distanceCounter);
+        distanceCounter = 0;
+        console.log(waypoints);
+        debugger;
+      }
+
+      else if ((distanceCounter > userStops)) {
+        waypoints.push(centerCord[i]);
+        console.log(distanceCounter);
+        distanceCounter = 0;
+        console.log(waypoints);
+        debugger;
       }
     }
     return waypoints;
+    debugger;
   }
 
 
