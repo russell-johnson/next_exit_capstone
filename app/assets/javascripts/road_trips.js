@@ -81,7 +81,7 @@ $(document).ready(function() {
       boxpolys[i] = new google.maps.Rectangle({
         bounds: boxes[i],
         fillOpacity: 0,
-        strokeOpacity: 1.0,
+        strokeOpacity: 0,
         strokeColor: '#000000',
         strokeWeight: 1,
         map: map
