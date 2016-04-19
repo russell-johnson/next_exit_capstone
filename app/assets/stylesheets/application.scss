@@ -13,6 +13,15 @@ main {
   flex: 1 0 auto;
 }
 
+.parallax-container {
+      height: "100px";
+      align: center;
+    }
+.section {
+  height: 500px;
+  text-align: center;
+}
+
 #google_map {
   width: 100%;
   height: 600px;
@@ -22,12 +31,12 @@ main {
 
 // NAVBARS
 .nav-wrapper {
-  background-color: #02734A;
+  background-color: #ffffff;
 }
 
 // FOOTER
 #footer {
-  background-color: #02734A;
+  background-color: #ffffff;
 }
 
 // FORM

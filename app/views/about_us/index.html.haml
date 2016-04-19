@@ -1,28 +1,42 @@
 .center/
-%body 
-  %h3 Next Exit
-  %p.container Next Exit is the place to get all your information about a road trip. Want to know where to stop for gas, and what the weather will be like there? Next Exit has the answer.  Next Exit makes recommendations based off conditions, and can recommend gas stops, hotels, places to eat, and places to visit. 
-  %br/
-  %h5 List of tools, gems, and technologies used on NextExit:
-  %ul.container
-    %li 
-      %strong APIs: 
-      Google, YELP, Weather Underground, 
-    %br/
-    %li 
-      %strong Gems: 
-      Devise, Jquery, Jbuilder, React, Puma, Devise, Geocoder, Google_directions, Omniauth, Mechanize, Pry, Database_cleaner, Shoulda-matchers, Factory_girl, Simplecov, Better_errors, Capybara, Selenium, Chromedriver
-    %br/
-    %li 
-      %strong Languages: 
-      Javascript, Haml, 
-    %br/
-    %li Styled with Materialize
-  %br/
+%body
+.parallax-container
+  .parallax
+    =image_tag 'parallax1.jpg'
+.section.white.valign-wrapper.z-depth-3
+  .row.container
+    %h2.valign Next Exit
+    %p.grey-text.text-darken-3.lighten-3 Next Exit is the place to get all your information about a road trip. Want to know where to stop for gas, and what the weather will be like there? Next Exit has the answer.  Next Exit makes recommendations based off conditions, and can recommend gas stops, hotels, places to eat, and places to visit.
+.parallax-container
+  .parallax
+    =image_tag 'parallax2.jpg'
+.section.white.valign-wrapper.z-depth-3
+  .row.container
+    %h5 List of tools, gems, and technologies used on NextExit:
+    %ul.container
+      %li
+        %strong APIs:
+        Google, YELP, Weather Underground,
+      %br/
+      %li
+        %strong Gems:
+        Devise, Jquery, Jbuilder, React, Puma, Devise, Geocoder, Google_directions, Omniauth, Mechanize, Pry, Database_cleaner, Shoulda-matchers, Factory_girl, Simplecov, Better_errors, Capybara, Selenium, Chromedriver
+      %br/
 
-  %h5 Meet the Team
-  %ul.container
-  %li= link_to "Jacob", about_us_jacob_path
-  %li= link_to "Parker", about_us_parker_path
-  %li= link_to "Russell", about_us_russell_path
-  %li= link_to "Todd", about_us_todd_path
+      %li
+        %strong Languages:
+        Javascript, Haml,
+      %br/
+      %li Styled with Materialize
+      %br/
+.parallax-container
+  .parallax
+    =image_tag 'parallax2.jpg'
+.section.white.valign-wrapper
+  .row.container.valign
+    %h5 Meet the Team
+    %ul.container
+    %li= link_to "Jacob", about_us_jacob_path
+    %li= link_to "Parker", about_us_parker_path
+    %li= link_to "Russell", about_us_russell_path
+    %li= link_to "Todd", about_us_todd_path

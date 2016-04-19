@@ -10,19 +10,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <title>Google Maps JavaScript API Search Along a Route Example</title>
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/routeboxer/src/RouteBoxer.js"></script>
 </head>
-<body>  
+<body>
  <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Next Exit</a>
+    <div class="nav-wrapper z-depth-2">
+      <a href="/" class="brand-logo green-text text-darken-2">Next Exit</a>
       <ul id="nav-mobile" class="right">
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Login', user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: 'green-text text-darken-2' %></li>
+          <li><%= link_to 'Login', user_session_path, class: 'green-text text-darken-2' %></li>
         <% end %>
       </ul>
     </div>
@@ -32,15 +32,15 @@
   <main>
     <%= yield %>
   </main>
-  
-  
+
+
   <footer id="footer" class="page-footer">
     <div class="container">
       <div class="row">
         <div class='center'>
           <div class="col s12">
-            <p class="grey-text text-lighten-4">We appreciate all the help we have received from <a href="http://www.devpointlabs.com/" target="_blank">DevPoint Labs!</a></p>
-              <a class="grey-text text-lighten-3" href="/about_us/index">About Us</a> / <a class="grey-text text-lighten-3"><%= link_to 'Careers at NextExit', about_us_contact_us_path%></a> / <a class="grey-text text-lighten-3"><%= link_to 'Contact Us', about_us_contact_us_path%></a>
+            <p class="green-text text-darken-2">We appreciate all the help we have received from <a href="http://www.devpointlabs.com/" target="_blank">DevPoint Labs!</a></p>
+              <a class="green-text text-darken-2" href="/about_us/index">About Us</a> / <a class="grey-text text-lighten-3"><%= link_to 'Careers at NextExit', about_us_contact_us_path%></a> / <a class="grey-text text-lighten-3"><%= link_to 'Contact Us', about_us_contact_us_path%></a>
           </div>
         </div>
       </div>
