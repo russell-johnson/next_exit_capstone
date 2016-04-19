@@ -1,34 +1,27 @@
 .parallax-container
   .parallax
     =image_tag 'parallax1.jpg'
-.section.white
+.section.white.valign-wrapper.z-depth-2
   .row.container
-    %h2.header Next Exit
-    %p.grey-text.text-darken-3.lighten-3 At NextExit, our mission is simple: Be the best place to work with the best people. How do we achieve that? NextExit has a small, agile workforce.  We don't believe in giving out titles, but instead relying on the synergy of the team.  With no investors, we only take direction from our hearts and follow our guts, shoot from the hip, and aim for the stars. Our staff is over the moon to work here and often try to pay us to be apart of the team.  Working for us, your NextExit will be the best one yet.
+    %h2.valign OUR MISSION
+    %p.grey-text.text-darken-3.lighten-3 At NextExit, our mission is simple: Be the best place to work with the best people. How do we achieve that? NextExit has a small, agile workforce.  We don't believe in giving out titles, but instead relying on the synergy of the team.  With no investors, we only take direction from our hearts, follow our guts, shoot from the hip, and aim for the stars. Our staff is over the moon to work here and often try to pay us to be apart of the team.  Working for us, your NextExit will be the best one yet.
 .parallax-container
   .parallax
     =image_tag 'parallax2.jpg'
-
-%center/
-%br/
-%h4.container Interested in working for NextExit?
-%br/
-%h6.container Send us an email, we want to hear from you.
-%br/
-%form
-  .row.container.input-field
-    %label{:for => "name"} Your name
-    %br/
-    %input#name.input{:name => "name", :size => "30", :type => "text", :value => ""}/
-    %br/
-  .row.container.input-field
-    %label{:for => "email"} Your email
-    %br/
-    %input#email.input{:name => "email", :size => "30", :type => "text", :value => ""}/
-    %br/
+.section.white.valign-wrapper.z-depth-1
   .row.container
-    %br/
-    %textarea#textarea1.materialize-textarea{:placeholder => "Your message"}
-    %br/
-    %br/
-    %input#submit_button.btn{:type => "submit", :value => "Send email"}/
+    .col.s12
+      .card.green.darken-2.z-depth-2
+        .card-content.white-text
+          %span.card-title Interested in working for NextExit?
+          %p Send us an email, we want to hear from you.
+          %form
+            .row.container.input-field
+              %label{:for => "name"} Your name
+              %input#name.input{:name => "name", :size => "30", :type => "text"}
+            .row.container.input-field
+              %label{:for => "email"} Your email
+              %input#email.input{:name => "email", :size => "30", :type => "text"}
+            .row.container
+              %textarea#textarea1.materialize-textarea{:placeholder => "Your message"}
+              %input#submit_button.btn{:type => "submit", :value => "Send email"}
