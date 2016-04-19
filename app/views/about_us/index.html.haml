@@ -1,16 +1,28 @@
 .center/
 %body 
-  %h3 The Next Exit Team
+  %h3 Next Exit
   %p.container Next Exit is the place to get all your information about a road trip. Want to know where to stop for gas, and what the weather will be like there? Next Exit has the answer.  Next Exit makes recommendations based off conditions, and can recommend gas stops, hotels, places to eat, and places to visit. 
   %br/
   %h5 List of tools, gems, and technologies used on NextExit:
   %ul.container
-    %li APIs: Google, YELP, Weather Underground
-    %li Gems: Devise, jquery-rails, jbuilder, sdoc, react-rails, puma, devise, geocoder, google_directions, omniauth, mechanize, pry, database_cleaner, shoulda-matchers, factory_girl_rails, simplecov, better_errros, capybara, selenium, chromedriver
-    %li Languages: Javascript, Haml
+    %li 
+      %strong APIs: 
+      Google, YELP, Weather Underground, 
+    %br/
+    %li 
+      %strong Gems: 
+      Devise, Jquery, Jbuilder, React, Puma, Devise, Geocoder, Google_directions, Omniauth, Mechanize, Pry, Database_cleaner, Shoulda-matchers, Factory_girl, Simplecov, Better_errors, Capybara, Selenium, Chromedriver
+    %br/
+    %li 
+      %strong Languages: 
+      Javascript, Haml, 
+    %br/
     %li Styled with Materialize
   %br/
-  = link_to "Jacob", about_us_jacob_path
-  = link_to "Parker", about_us_parker_path
-  = link_to "Russell", about_us_russell_path
-  = link_to "Todd", about_us_todd_path
+
+  %h5 Meet the Team
+  %ul.container
+  %li= link_to "Jacob", about_us_jacob_path
+  %li= link_to "Parker", about_us_parker_path
+  %li= link_to "Russell", about_us_russell_path
+  %li= link_to "Todd", about_us_todd_path
