@@ -624,7 +624,6 @@ Number.prototype.toBrng = function () {
         // Box around the overview path of the first route
         var path = result.routes[0].overview_path;
         var boxes = routeBoxer.box(path, distance);
-        drawBoxes(boxes);
         // getBoxes(boxes);
         let waypoints = [];
         let centerCord = [];
@@ -640,23 +639,6 @@ Number.prototype.toBrng = function () {
         alert("Directions query failed: " + status);
       }
     });
-  }
-
-  // Draw the array of boxes as polylines on the map
-  function drawBoxes(boxes) {
-    boxpolys = new Array(boxes.length);
-    for (var i = 0; i < boxes.length; i++) {
-      boxpolys[i] = new google.maps.Rectangle({
-        bounds: boxes[i],
-        fillOpacity: 0,
-        strokeOpacity: 1.0,
-        strokeColor: '#000000',
-        strokeWeight: 1,
-        map: map
-      });
-
-    }
-
   }
 
   function getBoxes(boxes) {
