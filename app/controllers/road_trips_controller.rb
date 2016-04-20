@@ -4,14 +4,17 @@ class RoadTripsController < ApplicationController
   end 
 
   def waypoints
+    @stops = []
     @waypoints = params['waypoints']
-
-    @waypoints.each do |i|
-      latitude =  (@waypoints['i']['latitude']).to_f
-      longitude = (@waypoints['i']['longitude']).to_f
-
-    end 
+    iterator = @waypoints.length
+    @index = 0
+    while @index < iterator do
+      point = {:latitude => (@waypoints["#{@index}"]['latitude']).to_f, :longitude => (@waypoints["#{@index}"]['longitude']).to_f}
+      @index += 1
+      puts "#{point[:latitude]},#{point[:longitude]}"
+      @stops = @stops.push(point)
+    end
+    render json: @stops
   end
 
 end
-
