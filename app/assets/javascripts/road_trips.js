@@ -758,7 +758,6 @@ Number.prototype.toBrng = function () {
       type: 'POST',
       data: {waypoints: waypoints}
     }).success( function(data){
-      debugger;
       window.location='/road_trips/display?data=' + encodeURI(JSON.stringify(data))
     }).error( function(data){
       console.log(data);

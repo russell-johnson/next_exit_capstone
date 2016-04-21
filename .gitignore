@@ -12,8 +12,9 @@
 !/log/.keep
 /tmp
 /coverage
-/config/google_map_api.yml
+config/google_map_api.yml
 config/facebook_omniauth_creds.yml
 config/mail.yml
+config/google_maps_directions_api.yml
 db/schema.rb
 
