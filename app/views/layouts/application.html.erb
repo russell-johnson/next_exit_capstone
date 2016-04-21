@@ -28,9 +28,13 @@
       <ul class="side-nav" id="mobile-demo">
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <a class="green-text text-darken-2" href="/about_us/index">About Us</a><%= link_to 'Careers at NextExit', about_us_contact_us_path%><%= link_to 'Contact Us', about_us_contact_us_path%></a>
+
         <% else %>
           <li><%= link_to 'Sign Up', new_user_registration_path, class: 'green-text text-darken-2' %></li>
           <li><%= link_to 'Login', user_session_path, class: 'green-text text-darken-2' %></li>
+          <a class="green-text text-darken-2" href="/about_us/index">About Us</a><%= link_to 'Careers at NextExit', about_us_contact_us_path%><%= link_to 'Contact Us', about_us_contact_us_path%></a>
+
         <% end %>
       </ul>
     </div>
