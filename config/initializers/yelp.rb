@@ -1,10 +1,10 @@
 require 'yelp'
 
-Yelp.client.configure do |config|
-  config.consumer_key = YOUR_CONSUMER_KEY
-  config.consumer_secret = YOUR_CONSUMER_SECRET
-  config.token = YOUR_TOKEN
-  config.token_secret = YOUR_TOKEN_SECRET
+YAML.load(File.read('config/yelp.yml')).each do |key, value|
+  ENV[key] = value
+  consumer_key = ENV['consumer_key']
+  consumer_secret = ENV['consumer_secret']
+  token = ENV['token']
+  token_secret = ENV['token_secret']
 end
 
-Yelp.client.search('San Francisco', { term: 'food' })
