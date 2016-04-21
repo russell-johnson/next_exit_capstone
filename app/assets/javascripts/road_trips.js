@@ -628,13 +628,14 @@ Number.prototype.toBrng = function () {
         let waypoints = [];
         let centerCord = [];
         let userStops = 150;
+        var geocoder = new google.maps.Geocoder;
         centerCord = getBoxes(boxes);
         preliminary = findDistance(centerCord, userStops);
         semiFinal = waypointFinal(preliminary, userStops);
         points = waypointFinal(semiFinal, userStops);
         waypoints = waypointFinal(points, userStops);
-
-        waypointSender(waypoints);
+        addressWaypoints = geocodeLatLng(waypoints, geocoder)
+        // waypointSender(waypoints);
       } else {
         alert("Directions query failed: " + status);
       }
@@ -752,17 +753,34 @@ Number.prototype.toBrng = function () {
     boxpolys = null;
   }
 
-  function waypointSender(waypoints){
-    $.ajax({
-      url: "/waypoints",
-      type: 'POST',
-      data: {waypoints: waypoints}
-    }).success( function(data){
-      window.location='/road_trips/display?data=' + encodeURI(JSON.stringify(data))
-    }).error( function(data){
-      console.log(data);
-    });
+  // function waypointSender(waypoints){
+  //   $.ajax({
+  //     url: "/waypoints",
+  //     type: 'POST',
+  //     data: {waypoints: waypoints}
+  //   }).success( function(data){
+  //     window.location='/road_trips/display?data=' + encodeURI(JSON.stringify(data))
+  //   }).error( function(data){
+  //     console.log(data);
+  //   });
 
+  // }
+  function geocodeLatLng(waypoints, geocoder) {
+    for (var i = 0; i < waypoints.length-1; i++) {
+    var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
+      geocoder.geocode({'location': latlng }, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            debugger;
+            window.alert('Worked');
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+    }
   }
 
   initialize();
