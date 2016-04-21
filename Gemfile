@@ -18,6 +18,9 @@ gem 'geocoder'
 gem 'google_directions'
 gem 'omniauth-facebook'
 gem 'mechanize'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'coffee-rails'
 
 
 group :development, :test do

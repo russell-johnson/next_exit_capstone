@@ -14,11 +14,14 @@ Rails.application.routes.draw do
 
   get 'about_us/contact_us'
 
+  get 'road_trips/display'
+
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
 
   root 'road_trips#index'
 
   resources :about_us
+  resources :road_trips
 
 end

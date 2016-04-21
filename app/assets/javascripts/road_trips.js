@@ -648,8 +648,6 @@ Number.prototype.toBrng = function () {
         var northeast = boxes[i].getNorthEast();
         var southwest = boxes[i].getSouthWest();
         centerCord.push({
-          // y: (parseFloat(northeast.lat()).toFixed(5)),
-          // z: (parseFloat(northeast.lng()).toFixed(5)),
           latitude: (parseFloat((northeast.lat()+southwest.lat())/2).toFixed(5)),
           longitude: (parseFloat((northeast.lng()+southwest.lng())/2).toFixed(5)) 
         });        
@@ -760,7 +758,8 @@ Number.prototype.toBrng = function () {
       type: 'POST',
       data: {waypoints: waypoints}
     }).success( function(data){
-      console.log(data);
+      debugger;
+      window.location='/road_trips/display?data=' + encodeURI(JSON.stringify(data))
     }).error( function(data){
       console.log(data);
     });

@@ -1,10 +1,11 @@
 class RoadTripsController < ApplicationController
+require 'json'
   def index
-    @road_trips = RoadTrip.all
+    
   end
 
-  def show
-    
+  def display
+    @waypoints = JSON.parse(params[:data])['stops']
   end 
 
   def waypoints
@@ -18,7 +19,7 @@ class RoadTripsController < ApplicationController
       puts "#{point[:latitude]},#{point[:longitude]}"
       @stops = @stops.push(point)
     end
-    render json: @stops
+    render json: {stops: @stops }
   end
 
 end
