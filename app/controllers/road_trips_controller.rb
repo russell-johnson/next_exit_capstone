@@ -1,12 +1,12 @@
 class RoadTripsController < ApplicationController
 require 'json'
   def index
-    
+
   end
 
   def display
     @waypoints = JSON.parse(params[:data])['stops']
-  end 
+  end
 
   def waypoints
     @stops = []
