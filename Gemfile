@@ -21,7 +21,7 @@ gem 'mechanize'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'coffee-rails'
-
+gem 'yelp'
 
 group :development, :test do
   gem 'byebug'

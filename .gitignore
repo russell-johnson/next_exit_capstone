@@ -16,5 +16,6 @@ config/google_map_api.yml
 config/facebook_omniauth_creds.yml
 config/mail.yml
 config/google_maps_directions_api.yml
+config/yelp.yml
 db/schema.rb
 
