@@ -29,8 +29,8 @@ require 'json'
                             token_secret: ENV['token_secret']
                           })
 
-    parameters = { term: params[:term], limit: 5}
-    render json: Yelp.client.search(@waypoints, parameters)
+    parameters = { term: params[:term], limit: 12}
+    @yelp_results = JSON.parse(@client.search(params[:location], parameters).to_json)
   end
 
 end

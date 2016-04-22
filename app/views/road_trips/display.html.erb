@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row">
    <div class="col s6 m6">
      <div class="card white darken-1 z-depth-2">
@@ -15,3 +16,39 @@
    </div>
  </div>
  </div>
+=======
+<% @waypoints.each do |waypoint| %>
+
+  <div class="row">
+    <div class="col s6 m6">
+      <div class="card white darken-1 z-depth-2">
+        <div class="card-content dark-grey-text">
+          <span class="card-title">CITY NAME</span>
+          <p>THIS IS WHERE THE WEATHER AND GAS PRICE WILL GO</p>
+        </div>
+        <div class="card-action">
+          <div class="form-group" style="margin: 0 30px">
+            <%= form_tag search_results_path, :method => 'get' do %>
+              <div class="form-group" style="margin: 0 30px">
+                <%= text_field_tag :term, params[:term], required: true, placeholder: 'ex: gyms', class: "form-control" %>
+                <%= text_field_tag :location, waypoint, required: true, placeholder: 'City, Zip, or State', class: "form-control" %>
+                <%= submit_tag "Search", :name => nil, class: "btn btn-default"%>
+                <p class="yelp">powered by <%= image_tag "https://s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/55e2efe681ed/assets/img/yelp_logo_50x25.png" %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col s6 m6'>
+       <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+        <div style='overflow:hidden;'>
+          <div id='gmap_canvas' style='height:800px;width:700px;'></div>
+          <div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div>
+          <style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
+          <script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(40.7607793,-111.89104739999999),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.7607793,-111.89104739999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>slc <br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+    </div>
+  </div>
+
+<% end %>
+>>>>>>> ed3a1c82dbe933bbb6645633693c3ee1688f49c6

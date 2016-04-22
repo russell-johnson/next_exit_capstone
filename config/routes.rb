@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :about_us
   resources :road_trips
 
+  get '/search_results' => 'road_trips#search'
+
 end
