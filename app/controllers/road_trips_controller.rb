@@ -10,7 +10,7 @@ require 'json'
   end
 
   def waypoints
-    binding.pry
+
     @stops = []
     @waypoints = params['waypoints']
     @addressWaypoints = params['addressWaypoints']

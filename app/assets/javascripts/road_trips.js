@@ -781,7 +781,7 @@ Number.prototype.toBrng = function () {
   }
 
   function waypointSender(waypoints, addressWaypoints){
-    debugger;
+
     $.ajax({
       url: "/waypoints",
       type: 'POST',
