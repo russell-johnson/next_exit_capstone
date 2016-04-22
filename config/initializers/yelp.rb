@@ -1,10 +1,8 @@
-require 'yelp'
-
-YAML.load(File.read('config/yelp.yml')).each do |key, value|
-  ENV[key] = value
-  consumer_key = ENV['consumer_key']
-  consumer_secret = ENV['consumer_secret']
-  token = ENV['token']
-  token_secret = ENV['token_secret']
+if Rails.env.development?
+  begin
+    settings_config = YAML.load_file('config/yelp.yml')
+    settings_config.each {|key, value| ENV[key] = value} 
+  rescue
+    raise "yelp.yml not found in config directory"
+  end
 end
-
