@@ -22,4 +22,15 @@ require 'json'
     render json: {stops: @stops }
   end
 
+  def search
+    @client = Yelp::Client.new({ consumer_key: ENV['consumer_key'],
+                            consumer_secret: ENV['consumer_secret'],
+                            token: ENV['token'],
+                            token_secret: ENV['token_secret']
+                          })
+
+    parameters = { term: params[:term], limit: 5}
+    render json: Yelp.client.search(@waypoints, parameters)
+  end
+
 end

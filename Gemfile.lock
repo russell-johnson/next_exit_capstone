@@ -172,6 +172,8 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open-weather (0.11.0)
+      json
     orm_adapter (0.5.0)
     pg (0.18.4)
     pry (0.10.3)
@@ -318,6 +320,7 @@ DEPENDENCIES
   materialize-sass
   mechanize
   omniauth-facebook
+  open-weather
   pg (~> 0.15)
   pry
   puma

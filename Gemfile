@@ -22,6 +22,7 @@ gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'coffee-rails'
 gem 'yelp'
+gem 'open-weather'
 
 group :development, :test do
   gem 'byebug'
