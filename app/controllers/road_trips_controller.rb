@@ -6,14 +6,15 @@ require 'json'
 
   def display
     @road_trip = RoadTrip.find(params['road_trip_id'])
+
+
   
   end
 
   def waypoints
-
     @stops = []
     @waypoints = params['waypoints']
-    @addressWaypoints = params['addressWaypoints']
+    @address_waypoints = params['addresses']
     iterator = @waypoints.length
     @index = 0
     while @index < iterator do
@@ -23,7 +24,7 @@ require 'json'
       @stops = @stops.push(point)
     end
    
-    road_trip = RoadTrip.create(waypoints: @stops)
+    road_trip = RoadTrip.create(waypoints: @stops, address_waypoints: @address_waypoints)
     if road_trip.save
       render json: {road_trip_id: road_trip.id} 
     else
