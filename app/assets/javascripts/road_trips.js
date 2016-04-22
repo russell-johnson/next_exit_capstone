@@ -760,11 +760,12 @@ Number.prototype.toBrng = function () {
       var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
       geocoder.geocode({'location': latlng }, function(results, status) {
         counter = counter - 1;  
+
         if (status === google.maps.GeocoderStatus.OK) {
           if (results[1]) {
             addressWaypoints.push(results[1]);
             if (counter == 0) {
-            
+
               waypointSender(waypoints, addressWaypoints);
             }
       
@@ -781,16 +782,17 @@ Number.prototype.toBrng = function () {
   }
 
   function waypointSender(waypoints, addressWaypoints){
-
+    let addresses = []
+    for(let x = 0; x < addressWaypoints.length-1; x++) {
+      addresses.push(addressWaypoints[x].formatted_address);
+    }
     $.ajax({
       url: "/waypoints",
       type: 'POST',
-      data: {waypoints: waypoints, addressWaypoints: addressWaypoints}
+      data: {waypoints: waypoints, addresses: addresses}
     }).success( function(data){
-     
       window.location = 'road_trips/display?road_trip_id=' + data.road_trip_id
-    }).error( function(data){
-    
+    }).error( function(data){    
       console.log(data); 
     });
 
