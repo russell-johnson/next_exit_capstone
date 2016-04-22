@@ -5,12 +5,15 @@ require 'json'
   end
 
   def display
-    @waypoints = JSON.parse(params[:data])['stops']
+    @road_trip = RoadTrip.find(params['road_trip_id'])
+  
   end
 
   def waypoints
+    binding.pry
     @stops = []
     @waypoints = params['waypoints']
+    @addressWaypoints = params['addressWaypoints']
     iterator = @waypoints.length
     @index = 0
     while @index < iterator do
@@ -19,7 +22,13 @@ require 'json'
       puts "#{point[:latitude]},#{point[:longitude]}"
       @stops = @stops.push(point)
     end
-    render json: {stops: @stops }
+   
+    road_trip = RoadTrip.create(waypoints: @stops)
+    if road_trip.save
+      render json: {road_trip_id: road_trip.id} 
+    else
+      render json: {error: errors.all}
+    end
   end
 
 end
