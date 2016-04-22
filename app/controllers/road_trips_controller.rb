@@ -6,9 +6,11 @@ require 'json'
 
   def display
     @road_trip = RoadTrip.find(params['road_trip_id'])
+    @latlong = @road_trip.waypoints
 
-
+    @addresses = JSON.parse(@road_trip.address_waypoints)
   
+ 
   end
 
   def waypoints
