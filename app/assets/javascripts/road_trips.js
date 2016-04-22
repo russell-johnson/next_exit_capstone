@@ -634,8 +634,8 @@ Number.prototype.toBrng = function () {
         semiFinal = waypointFinal(preliminary, userStops);
         points = waypointFinal(semiFinal, userStops);
         waypoints = waypointFinal(points, userStops);
-        addressWaypoints = geocodeLatLng(waypoints, geocoder)
         // waypointSender(waypoints);
+        addressWaypoints = geocodeLatLng(waypoints, geocoder);        
       } else {
         alert("Directions query failed: " + status);
       }
@@ -643,7 +643,7 @@ Number.prototype.toBrng = function () {
   }
 
   function getBoxes(boxes) {
-    let centerCord = []
+    let centerCord = [];
       for (var i = 0; i < boxes.length; i++) {
 
         var northeast = boxes[i].getNorthEast();
@@ -753,35 +753,49 @@ Number.prototype.toBrng = function () {
     boxpolys = null;
   }
 
-  // function waypointSender(waypoints){
-  //   $.ajax({
-  //     url: "/waypoints",
-  //     type: 'POST',
-  //     data: {waypoints: waypoints}
-  //   }).success( function(data){
-  //     window.location='/road_trips/display?data=' + encodeURI(JSON.stringify(data))
-  //   }).error( function(data){
-  //     console.log(data);
-  //   });
-
-  // }
   function geocodeLatLng(waypoints, geocoder) {
-    for (var i = 0; i < waypoints.length-1; i++) {
-    var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
+    var addressWaypoints = [];
+    let counter = waypoints.length-1;
+    for (let i = 0; i < waypoints.length-1; i++) {
+      var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
       geocoder.geocode({'location': latlng }, function(results, status) {
+        counter = counter - 1;  
         if (status === google.maps.GeocoderStatus.OK) {
           if (results[1]) {
-            debugger;
-            window.alert('Worked');
+            addressWaypoints.push(results[1]);
+            if (counter == 0) {
+            
+              waypointSender(waypoints, addressWaypoints);
+            }
+      
           } else {
             window.alert('No results found');
           }
         } else {
           window.alert('Geocoder failed due to: ' + status);
+          
         }
       });
-    }
+    }   
+    return addressWaypoints;
   }
+
+  function waypointSender(waypoints, addressWaypoints){
+    debugger;
+    $.ajax({
+      url: "/waypoints",
+      type: 'POST',
+      data: {waypoints: waypoints, addressWaypoints: addressWaypoints}
+    }).success( function(data){
+     
+      window.location = 'road_trips/display?road_trip_id=' + data.road_trip_id
+    }).error( function(data){
+    
+      console.log(data); 
+    });
+
+  }
+
 
   initialize();
 

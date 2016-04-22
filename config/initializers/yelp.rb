@@ -6,3 +6,4 @@ if Rails.env.development?
     raise "yelp.yml not found in config directory"
   end
 end
+
