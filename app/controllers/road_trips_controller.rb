@@ -9,8 +9,8 @@ require 'json'
     @latlong = @road_trip.waypoints
 
     @addresses = JSON.parse(@road_trip.address_waypoints)
-  
- 
+
+
   end
 
   def waypoints
@@ -25,10 +25,10 @@ require 'json'
       puts "#{point[:latitude]},#{point[:longitude]}"
       @stops = @stops.push(point)
     end
-   
+
     road_trip = RoadTrip.create(waypoints: @stops, address_waypoints: @address_waypoints)
     if road_trip.save
-      render json: {road_trip_id: road_trip.id} 
+      render json: {road_trip_id: road_trip.id}
     else
       render json: {error: errors.all}
     end
