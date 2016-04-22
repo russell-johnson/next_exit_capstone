@@ -1,12 +1,13 @@
-<% @yelp_results.each do |yelp_results| %>
-  <div class="row">
+<div class="row">
+  <% @yelp_results['businesses'].each do |yelp_result| %>
     <div class="col s12 m6">
-      <div class="card white darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
-          <p>yelp_results</p>
+      <div class="card white darken-1 z-depth-2">
+        <div class="card-content dark-grey-text">
+          <span class="card-title"></span>
+          <p><%= yelp_result['name'] %></p>
+          <p><%= yelp_result['rating'] %> <a target="_blank" href=><% yelp_result['url'] %>See on Yelp.com<a/>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
