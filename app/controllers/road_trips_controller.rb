@@ -1,15 +1,23 @@
 class RoadTripsController < ApplicationController
 require 'json'
+require 'open_weather'
   def index
 
   end
 
   def display
+
+    options = { units: 'imperial', APPID: ENV['WEATHER_API'] }
+    # make k an ENV variable
     @road_trip = RoadTrip.find(params['road_trip_id'])
     @latlong = @road_trip.waypoints
 
     @addresses = JSON.parse(@road_trip.address_waypoints)
+    @results = []
+    @addresses.each do |address|
+    @results << {address: address, weather: OpenWeather::Current.city(address, options) }
 
+    end
 
   end
 
