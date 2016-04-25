@@ -7,6 +7,8 @@
   .row.container
     %h2.valign Next Exit
     %p.grey-text.text-darken-3.lighten-3 Next Exit is the place to get all your information about a road trip. Want to know where to stop for gas, and what the weather will be like there? Next Exit has the answer.  Next Exit makes recommendations based off conditions, and can recommend gas stops, hotels, places to eat, and places to visit.
+    %br
+    =image_tag 'nextexit.png'
 .parallax-container
   .parallax
     =image_tag 'parallax2.jpg'
@@ -44,9 +46,10 @@
 .parallax-container
   .parallax
     =image_tag 'parallax2.jpg'
-.section.white.z-depth-1
-  .row.container
+.section.white.z-depth-1.valign-wrapper
+  .row.container.valign
     %h5 Meet the Team
+    %br
     .col.s3
       %img.photo.circle{:src => "/assets/jacob_squire.jpg"}
       %br
