@@ -635,7 +635,7 @@ Number.prototype.toBrng = function () {
         points = waypointFinal(semiFinal, userStops);
         waypoints = waypointFinal(points, userStops);
         // waypointSender(waypoints);
-        addressWaypoints = geocodeLatLng(waypoints, geocoder);        
+        addressWaypoints = geocodeLatLng(waypoints, geocoder);
       } else {
         alert("Directions query failed: " + status);
       }
@@ -759,7 +759,7 @@ Number.prototype.toBrng = function () {
     for (let i = 0; i < waypoints.length-1; i++) {
       var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
       geocoder.geocode({'location': latlng }, function(results, status) {
-        counter = counter - 1;  
+        counter = counter - 1;
 
         if (status === google.maps.GeocoderStatus.OK) {
           if (results[1]) {
@@ -768,16 +768,16 @@ Number.prototype.toBrng = function () {
 
               waypointSender(waypoints, addressWaypoints);
             }
-      
+
           } else {
             window.alert('No results found');
           }
         } else {
           window.alert('Geocoder failed due to: ' + status);
-          
+
         }
       });
-    }   
+    }
     return addressWaypoints;
   }
 
@@ -792,8 +792,8 @@ Number.prototype.toBrng = function () {
       data: {waypoints: waypoints, addresses: addresses}
     }).success( function(data){
       window.location = 'road_trips/display?road_trip_id=' + data.road_trip_id
-    }).error( function(data){    
-      console.log(data); 
+    }).error( function(data){
+      console.log(data);
     });
 
   }
