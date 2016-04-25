@@ -10,6 +10,11 @@ body {
   flex-direction: column;
 }
 
+#overflow{
+  height: 650px;
+  overflow: scroll;
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -40,8 +45,8 @@ main {
 }
 
 #google_map {
-  width: 100%;
-  height: 600px;
+  width: 65%;
+  height: 650px;
   position: absolute;
 
 }
