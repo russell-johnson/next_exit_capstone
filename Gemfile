@@ -23,6 +23,7 @@ gem 'underscore-rails'
 gem 'coffee-rails'
 gem 'yelp'
 gem 'open-weather'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
