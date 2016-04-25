@@ -625,9 +625,9 @@ Number.prototype.toBrng = function () {
         var path = result.routes[0].overview_path;
         var boxes = routeBoxer.box(path, distance);
         // getBoxes(boxes);
-        let waypoints = [];
-        let centerCord = [];
-        let userStops = 150;
+        var waypoints = [];
+        var centerCord = [];
+        var userStops = 150;
         var geocoder = new google.maps.Geocoder;
         centerCord = getBoxes(boxes);
         preliminary = findDistance(centerCord, userStops);
@@ -643,7 +643,7 @@ Number.prototype.toBrng = function () {
   }
 
   function getBoxes(boxes) {
-    let centerCord = [];
+    var centerCord = [];
       for (var i = 0; i < boxes.length; i++) {
 
         var northeast = boxes[i].getNorthEast();
@@ -663,7 +663,7 @@ Number.prototype.toBrng = function () {
     var preliminary = [];
     preliminary.push(centerCord[0]);
     var x = 0;
-    let distanceCounter = 0;
+    var distanceCounter = 0;
     for (var i = 1; i < centerCord.length; i++) {
       x = (i + 1); // this is to catch the next iteration
 
@@ -755,7 +755,7 @@ Number.prototype.toBrng = function () {
 
   function geocodeLatLng(waypoints, geocoder) {
     var addressWaypoints = [];
-    let counter = waypoints.length-1;
+    var counter = waypoints.length-1;
     for (let i = 0; i < waypoints.length-1; i++) {
       var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
       geocoder.geocode({'location': latlng }, function(results, status) {
