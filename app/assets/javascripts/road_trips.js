@@ -627,7 +627,7 @@ Number.prototype.toBrng = function () {
         // getBoxes(boxes);
         var waypoints = [];
         var centerCord = [];
-        var userStops = 150;
+        var userStops = document.getElementById("userStops").value;
         var geocoder = new google.maps.Geocoder;
         centerCord = getBoxes(boxes);
         preliminary = findDistance(centerCord, userStops);
