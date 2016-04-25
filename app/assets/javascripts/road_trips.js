@@ -756,7 +756,7 @@ Number.prototype.toBrng = function () {
   function geocodeLatLng(waypoints, geocoder) {
     var addressWaypoints = [];
     var counter = waypoints.length-1;
-    for (let i = 0; i < waypoints.length-1; i++) {
+    for (var i = 0; i < waypoints.length-1; i++) {
       var latlng = {lat: parseFloat(waypoints[i].latitude), lng: parseFloat(waypoints[i].longitude)}
       geocoder.geocode({'location': latlng }, function(results, status) {
         counter = counter - 1;
@@ -782,8 +782,8 @@ Number.prototype.toBrng = function () {
   }
 
   function waypointSender(waypoints, addressWaypoints){
-    let addresses = []
-    for(let x = 0; x < addressWaypoints.length-1; x++) {
+    var addresses = []
+    for(var x = 0; x < addressWaypoints.length-1; x++) {
       addresses.push(addressWaypoints[x].formatted_address);
     }
     $.ajax({
