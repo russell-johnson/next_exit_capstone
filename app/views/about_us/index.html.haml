@@ -44,15 +44,22 @@
 .parallax-container
   .parallax
     =image_tag 'parallax2.jpg'
-.section.white.valign-wrapper.z-depth-1
-  .row.container.valign
+.section.white.z-depth-1
+  .row.container
     %h5 Meet the Team
-    %ul.container
-    %img.photo{:src => "/assets/jacob_squire.jpg"}
-    %li= link_to "Jacob", about_us_jacob_path
-    %img.photo{:src => "/assets/parker_smith.jpg"}
-    %li= link_to "Parker", about_us_parker_path
-    %img.photo{:src => "/assets/russel_max.jpg"}
-    %li= link_to "Russell", about_us_russell_path
-    %img.photo{:src => "/assets/todd_utterback.jpg"}
-    %li= link_to "Todd", about_us_todd_path
+    .col.s3
+      %img.photo.circle{:src => "/assets/jacob_squire.jpg"}
+      %br
+      = link_to "Jacob", about_us_jacob_path
+    .col.s3
+      %img.photo.circle{:src => "/assets/parker_smith.jpg"}
+      %br
+      = link_to "Parker", about_us_parker_path
+    .col.s3
+      %img.photo.circle{:src => "/assets/russel_max.jpg"}
+      %br
+      = link_to "Russell", about_us_russell_path
+    .col.s3
+      %img.photo.circle{:src => "/assets/todd_utterback.jpg"}
+      %br
+      = link_to "Todd", about_us_todd_path
