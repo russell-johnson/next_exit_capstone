@@ -5,14 +5,14 @@
           <div class="card white darken-1 z-depth-2">
             <div class="card-content dark-grey-text">
               <span class="card-title"><%= result[:address] %></span>
-              <p><%= result[:weather]['weather'][0]['main'] + ' | ' + result[:weather]['main']['temp'].to_s  %>&deg;F </p>
+              <p class="float: right"><%= result[:weather]['weather'][0]['main'] + ' | ' + result[:weather]['main']['temp'].to_i.to_s  %>&deg;F<p>
             </div>
             <div class="card-action">
               <div class="form-group" style="margin: 0 30px">
                 <%= form_tag search_results_path, :method => 'get' do %>
                   <div class="form-group" style="margin: 0 30px">
-                    <%= text_field_tag :term, params[:term], required: true, placeholder: 'ex: restaurants', class: "form-control" %>
-                    <%= text_field_tag :location, result[:address], required: true, placeholder: 'City, Zip, or State', class: "form-control" %>
+                    <%= text_field_tag :term, params[:term], required: true, placeholder: 'Looking for a dog park? Getting Hangry? Search Yelp here', class: "form-control" %>
+                    <p class="hide"><%= text_field_tag :location, result[:address], required: true, placeholder: 'City, Zip, or State', class: "form-control" %></p>
                     <%= submit_tag "Search", :name => nil, class: "btn btn-default"%>
                     <p class="yelp">powered by <%= image_tag "https://s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/55e2efe681ed/assets/img/yelp_logo_50x25.png" %></p>
                   </div>

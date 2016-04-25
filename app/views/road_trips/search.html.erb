@@ -1,4 +1,6 @@
-<h3>Yelp Search Results</h3>
+<div class=center>
+  <h3>Yelp Search Results</h3>
+</div>
 <div class="row">
   <% @yelp_results['businesses'].each do |yelp_result| %>
     <div class="col s12 m3 center">
@@ -8,7 +10,7 @@
             <%= image_tag yelp_result["image_url"] %>
             <p><%= yelp_result['name'] %></p>
             <p><%= image_tag yelp_result['rating_img_url'] %> </p>
-            <p><a target="blank" href="<%= yelp_result['url'] %>">See on Yelp.com</a></p>
+            <p><a target="blank" href="<%= yelp_result['url'] %>">Read Reviews on Yelp</a></p>
             <p><%= yelp_result["location"]["display_address"].join(", ") %></p>
         </div>
       </div>
@@ -16,5 +18,5 @@
   <% end %>
 </div>
 <div class="center">
-  <%= link_to 'Back to route', url_for(:back) %>
+  <h5><%= link_to 'Back to route', url_for(:back) %></h5>
 </div>
