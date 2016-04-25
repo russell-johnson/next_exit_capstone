@@ -11,7 +11,7 @@
               <div class="form-group" style="margin: 0 30px">
                 <%= form_tag search_results_path, :method => 'get' do %>
                   <div class="form-group" style="margin: 0 30px">
-                    <%= text_field_tag :term, params[:term], required: true, placeholder: 'ex: gyms', class: "form-control" %>
+                    <%= text_field_tag :term, params[:term], required: true, placeholder: 'ex: restaurants', class: "form-control" %>
                     <%= text_field_tag :location, result[:address], required: true, placeholder: 'City, Zip, or State', class: "form-control" %>
                     <%= submit_tag "Search", :name => nil, class: "btn btn-default"%>
                     <p class="yelp">powered by <%= image_tag "https://s3-media2.fl.yelpcdn.com/assets/srv0/developer_pages/55e2efe681ed/assets/img/yelp_logo_50x25.png" %></p>

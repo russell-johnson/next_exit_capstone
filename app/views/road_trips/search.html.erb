@@ -1,13 +1,20 @@
+<h3>Yelp Search Results</h3>
 <div class="row">
   <% @yelp_results['businesses'].each do |yelp_result| %>
-    <div class="col s12 m6">
-      <div class="card white darken-1 z-depth-2">
-        <div class="card-content dark-grey-text">
-          <span class="card-title"></span>
-          <p><%= yelp_result['name'] %></p>
-          <p><%= yelp_result['rating'] %> <a target="_blank" href=><% yelp_result['url'] %>See on Yelp.com<a/>
+    <div class="col s12 m3 center">
+      <div class="card white" style="height: 300px">
+        <div class="card-content black-text">
+            <span class="card-title"></span>
+            <%= image_tag yelp_result["image_url"] %>
+            <p><%= yelp_result['name'] %></p>
+            <p><%= image_tag yelp_result['rating_img_url'] %> </p>
+            <p><a target="blank" href="<%= yelp_result['url'] %>">See on Yelp.com</a></p>
+            <p><%= yelp_result["location"]["display_address"].join(", ") %></p>
         </div>
       </div>
     </div>
   <% end %>
+</div>
+<div class="center">
+  <%= link_to 'Back to route', url_for(:back) %>
 </div>

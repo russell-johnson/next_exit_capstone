@@ -612,8 +612,8 @@ Number.prototype.toBrng = function () {
     distance = .25 * 1.609344;
 
     var request = {
-      origin: document.getElementById("to").value,
-      destination: document.getElementById("from").value,
+      origin: document.getElementById("from").value,
+      destination: document.getElementById("to").value,
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     }
 
