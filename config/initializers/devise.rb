@@ -1,15 +1,17 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-if Rails.env.development?
-  Devise.setup do |config|
+Devise.setup do |config|
+  
+  if Rails.env.development?
     begin
       YAML.load(File.read('config/facebook_omniauth_creds.yml')).each do |key, value|
-      ENV[key] = value
-    end
+        ENV[key] = value
+      end
     rescue
       raise 'No facebook_omniauth_creds file found in config dir!'
+    end
   end
-end
+  
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
                   scope: 'email', info_fields: 'email, name'
   # The secret key used by Devise. Devise uses this key to generate
