@@ -13,7 +13,9 @@ Devise.setup do |config|
   end
   
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
-                  scope: 'email', info_fields: 'email, name'
+                  # scope: 'email', info_fields: 'email, name',
+                  {:client_options => {:ssl => {:ca_path => "/etc/ssl/certs"}}}
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
