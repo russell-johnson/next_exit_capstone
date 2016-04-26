@@ -5,7 +5,7 @@
           <div class="card white darken-1 z-depth-2">
             <div class="card-content dark-grey-text">
               <span class="card-title"><%= result[:address] %></span>
-              
+              <p class="float: right"><%= result[:weather]['weather'][0]['main'] + ' | ' + result[:weather]['main']['temp'].to_i.to_s  %>&deg;F<p>
             </div>
             <div class="card-action">
               <div class="form-group" style="margin: 0 30px">
