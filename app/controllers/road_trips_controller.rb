@@ -43,10 +43,10 @@ require 'open_weather'
   end
 
   def search
-    @client = Yelp::Client.new({ CONSUMER_KEY: ENV['CONSUMER_KEY'],
-                            CONSUMER_SECRET: ENV['CONSUMER_SECRET'],
-                            TOKEN: ENV['TOKEN'],
-                            TOKEN_SECRET: ENV['TOKEN_SECRET']
+    @client = Yelp::Client.new({ CONSUMER_KEY= ENV['CONSUMER_KEY'],
+                            CONSUMER_SECRET= ENV['CONSUMER_SECRET'],
+                            TOKEN= ENV['TOKEN'],
+                            TOKEN_SECRET= ENV['TOKEN_SECRET']
                           })
 
     parameters = { term: params[:term], limit: 12}
