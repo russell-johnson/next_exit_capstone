@@ -597,6 +597,7 @@ Number.prototype.toBrng = function () {
   }
 
   function geocodeLatLng(waypoints, geocoder) {
+    var delay = 100;
     var addressWaypoints = [];
     var counter = waypoints.length-1;
     for (var i = 0; i < waypoints.length-1; i++) {
@@ -605,18 +606,26 @@ Number.prototype.toBrng = function () {
         counter = counter - 1;
 
         if (status === google.maps.GeocoderStatus.OK) {
-          if (results[1]) {
-            addressWaypoints.push(results[1]);
-            if (counter == 0) {
+          if (results[0]) {
+            addressWaypoints.push(results[0]);
 
+            if (counter == 0) {
               waypointSender(waypoints, addressWaypoints);
             }
 
           } else {
-            console.log('No results found');
+            setTimeout(function(){console.log(delay)}, delay);
           }
         } else {
-          console.log('Geocoder failed due to: ' + status)
+          if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+            i = i - 1;
+            counter = counter + 1;
+            delay = delay + 1;
+          } else {
+            var reason="Code "+status;
+            var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
+            document.getElementById("messages").innerHTML += msg;
+          }   
 
         }
       });

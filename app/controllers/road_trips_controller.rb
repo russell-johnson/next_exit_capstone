@@ -18,6 +18,9 @@ require 'open_weather'
     @results << {address: address, weather: OpenWeather::Current.city(address, options) }
     end
 
+    puts @latlong
+    puts @addresses
+
     respond_to do |format|
       format.html
       format.json { render json: { latlong: @latlong }}
@@ -33,7 +36,6 @@ require 'open_weather'
     while @index < iterator do
       point = {:latitude => (@waypoints["#{@index}"]['latitude']).to_f, :longitude => (@waypoints["#{@index}"]['longitude']).to_f}
       @index += 1
-      puts "#{point[:latitude]},#{point[:longitude]}"
       @stops = @stops.push(point)
     end
 
