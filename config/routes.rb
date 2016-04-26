@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'road_trips/display'
 
+  get 'road_trips/my_trips', to: 'road_trips#my_trips'
+
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
 
 

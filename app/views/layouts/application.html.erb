@@ -21,6 +21,8 @@
       <ul  class="right hide-on-med-and-down">
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'green-text text-darken-2' %></li>
+          <li><%= link_to 'My Trips', road_trips_my_trips_path, class: 'green-text text-darken-2' %></li>
+
         <% else %>
           <li><%= link_to 'Sign Up', new_user_registration_path, class: 'green-text text-darken-2' %></li>
           <li><%= link_to 'Login', user_session_path, class: 'green-text text-darken-2' %></li>
