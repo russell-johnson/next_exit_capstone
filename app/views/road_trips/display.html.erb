@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row display_padding">
   <div id="overflow" class='col s12 m4'>
     <% @results.each do |result| %>
       <div class="col s12">
@@ -23,15 +23,14 @@
         </div>
     <% end %>
   </div>
-  <div class='col s12 m6'>
-    <div class = 'row'>
-      <div class="col s12 m6" id="google_map">
-      </div>
+  <div class='col s12 m8'>
+      <div class="" id="google_map">
+
     </div>
   </div>
 
   <script>
-    $(document).ready(function(){    
+    $(document).ready(function(){
       var id = location.search.split("=")[1]
       $.ajax({
         url: '/road_trips/display',
@@ -39,11 +38,11 @@
         data: { road_trip_id: id },
         dataType: 'json'
       }).success(function(data) {
-        initMap(data.latlong);     
+        initMap(data.latlong);
       }).error(function(msg) {
         console.log(msg)
       });
-        
+
         function initMap(latlong) {
           var myLatLng = {lat: latlong[0].latitude, lng: latlong[0].longitude};
 
