@@ -16,9 +16,12 @@ require 'open_weather'
     @results = []
     @addresses.each do |address|
     @results << {address: address, weather: OpenWeather::Current.city(address, options) }
-
     end
 
+    respond_to do |format|
+      format.html
+      format.json { render json: { latlong: @latlong }}
+    end  
   end
 
   def waypoints

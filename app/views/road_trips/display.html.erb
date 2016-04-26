@@ -23,12 +23,51 @@
         </div>
     <% end %>
   </div>
-  <div class='col s12 m8'>
-    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-    <div style='overflow:hidden;'>
-      <iframe id = "google_map" frameborder="0" style="border:0" src= "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBmFKZTdfzK6wNLkZ6T5sI5vDUCTQWyfuA&origin=<%=@addresses.first%>&destination=<%=@addresses.last%>">
-      </iframe>
-
+  <div class='col s12 m6'>
+    <div class = 'row'>
+      <div class="col s12 m6" id="google_map">
+      </div>
     </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){    
+      var id = location.search.split("=")[1]
+      $.ajax({
+        url: '/road_trips/display',
+        type: 'GET',
+        data: { road_trip_id: id },
+        dataType: 'json'
+      }).success(function(data) {
+        initMap(data.latlong);     
+      }).error(function(msg) {
+        console.log(msg)
+      });
+        
+        function initMap(latlong) {
+          var myLatLng = {lat: latlong[0].latitude, lng: latlong[0].longitude};
+
+          var map = new google.maps.Map(document.getElementById("google_map"),{
+            zoom: 4,
+            center: myLatLng
+          });
+             var ll = [];
+          for (var i = 0; i < latlong.length-1; i++) {
+            var lati = latlong[i].latitude
+            var long = latlong[i].longitude
+            ll.push({lat: lati, lng: long});
+          }
+
+          for (var i = 0; i < ll.length-1; i++) {
+            var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(ll[i].lat, ll[i].lng),
+              map: map
+            });
+          }
+
+        }
+    });
+
+  </script>
   </div>
 </div>
