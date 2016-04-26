@@ -6,21 +6,18 @@ require 'open_weather'
   end
 
   def display
-
     options = { units: 'imperial', APPID: ENV['WEATHER_API'] }
-    # make k an ENV variable
     @road_trip = RoadTrip.find(params['road_trip_id'])
+    
     @latlong = @road_trip.waypoints
-
     @addresses = JSON.parse(@road_trip.address_waypoints)
     @results = []
+    
     @addresses.each do |address|
     @results << {address: address, weather: OpenWeather::Current.city(address, options) }
     end
-
-    puts @latlong
-    puts @addresses
-
+    
+    binding.pry
     respond_to do |format|
       format.html
       format.json { render json: { latlong: @latlong }}
@@ -31,6 +28,8 @@ require 'open_weather'
     @stops = []
     @waypoints = params['waypoints']
     @address_waypoints = params['addresses']
+    @origin = params['origin']
+    @destination = params['destination']
     iterator = @waypoints.length
     @index = 0
     while @index < iterator do
@@ -39,7 +38,7 @@ require 'open_weather'
       @stops = @stops.push(point)
     end
 
-    road_trip = RoadTrip.create(waypoints: @stops, address_waypoints: @address_waypoints)
+    road_trip = RoadTrip.create(waypoints: @stops, address_waypoints: @address_waypoints, origin: @origin, destination: @destination)
     if road_trip.save
       render json: {road_trip_id: road_trip.id}
     else
