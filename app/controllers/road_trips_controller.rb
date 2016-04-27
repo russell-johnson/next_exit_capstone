@@ -19,6 +19,8 @@ require 'open_weather'
     @latlong = @road_trip.waypoints
     @addresses = JSON.parse(@road_trip.address_waypoints)
     @results = []
+    @origin = @road_trip.origin
+    @destination = @road_trip.destination
 
     @addresses.each do |address|
     @results << {address: address, weather: OpenWeather::Current.city(address, options) }
@@ -27,7 +29,7 @@ require 'open_weather'
 
     respond_to do |format|
       format.html
-      format.json { render json: { latlong: @latlong }}
+      format.json { render json: { latlong: @latlong, origin: @origin, destination: @destination }}
     end
   end
 
@@ -45,7 +47,7 @@ require 'open_weather'
       @stops = @stops.push(point)
     end
 
-    uid = current_user.id || nil
+    uid = current_user ? current_user.id : nil
 
     road_trip = RoadTrip.create(waypoints: @stops, address_waypoints: @address_waypoints, origin: @origin, destination: @destination, user_id: uid)
     if road_trip.save

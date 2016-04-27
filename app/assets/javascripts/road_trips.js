@@ -410,7 +410,7 @@ Number.prototype.toBrng = function () {
     boxpolys = null;
   }
   function geocodeLatLng(waypoints, geocoder, userRequest) {
-    var delay = 100;
+    var delay = 120;
     var addressWaypoints = [];
     var counter = waypoints.length-1;
     for (var i = 0; i < waypoints.length-1; i++) {
@@ -433,7 +433,7 @@ Number.prototype.toBrng = function () {
             delay = delay + 1;
           } else {
             var reason="Code "+status;
-            var msg = 'address="' + search + '" error=' +reason+ '(delay='+delay+'ms)<br>';
+            var msg = 'address"" error=' +reason+ '(delay='+delay+'ms)<br>';
             document.getElementById("messages").innerHTML += msg;
           }   
         }
@@ -443,8 +443,8 @@ Number.prototype.toBrng = function () {
   }
   function waypointSender(waypoints, addressWaypoints, request){
     var addresses = []
-    var origin = request.origin
-    var destination = request.destination
+    var origin = request.origin;
+    var destination = request.destination;
     for(var x = 0; x < addressWaypoints.length-1; x++) {
       addresses.push(addressWaypoints[x].formatted_address);
     }

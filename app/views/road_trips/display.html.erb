@@ -38,16 +38,19 @@
         data: { road_trip_id: id },
         dataType: 'json'
       }).success(function(data) {
-        initMap(data.latlong);
+        initMap(data.latlong, data.origin, data.destination); 
       }).error(function(msg) {
         console.log(msg)
       });
 
-        function initMap(latlong) {
-          var myLatLng = {lat: latlong[0].latitude, lng: latlong[0].longitude};
+        function initMap(latlong, origin, destination) {
+          center = Math.round((latlong.length-1)/2)
+          var myLatLng = {lat: latlong[center].latitude, lng: latlong[center].longitude};
+          debugger;
+
 
           var map = new google.maps.Map(document.getElementById("google_map"),{
-            zoom: 4,
+            zoom: 5,
             center: myLatLng
           });
              var ll = [];
