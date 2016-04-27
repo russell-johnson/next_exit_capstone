@@ -37,8 +37,8 @@ main {
 
 .parallax-container {
       height: 90vh;
-      align: center;
     }
+
 .section {
   height: 500px;
   text-align: center;
@@ -78,7 +78,6 @@ main {
   background-color: #ffffff;
   opacity: 0.9;
   filter: alpha(opacity=60);
-  position: absolute;
   float: left;
 
 }
@@ -88,7 +87,7 @@ main {
   background-color: #ffffff;
   opacity: 0.9;
   filter: alpha(opacity=60);
-  position: absolute;
+
   padding: 20px;
 
 }

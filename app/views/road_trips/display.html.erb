@@ -38,7 +38,7 @@
         data: { road_trip_id: id },
         dataType: 'json'
       }).success(function(data) {
-        initMap(data.latlong, data.origin, data.destination); 
+        initMap(data.latlong, data.origin, data.destination);
       }).error(function(msg) {
         console.log(msg)
       });
