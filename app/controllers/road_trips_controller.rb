@@ -10,7 +10,6 @@ require 'open_weather'
 
   def my_trips
     @my_trips = current_user.road_trips
-    binding.pry
   end
 
   def display
@@ -25,7 +24,7 @@ require 'open_weather'
     @results << {address: address, weather: OpenWeather::Current.city(address, options) }
     end
 
-    binding.pry
+
     respond_to do |format|
       format.html
       format.json { render json: { latlong: @latlong }}
