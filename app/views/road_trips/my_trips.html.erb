@@ -1,15 +1,16 @@
-<% @my_trips.each do |i| %>
+<div class='container'>
+  <% @my_trips.each do |i| %>
   <div class="row">
-   <div class="col s12 m6 push-m3">
-     <div class="card white darken- z-depth-2">
-       <div class="card-content center dark-grey-text">
-         <h5><%=i.origin.to_s %></h5>
-         <h5><%=i.destination.to_s %></h5>
-       </div>
-
-       </div>
-     </div>
-   </div>
- </div>
-
+    <div class="col s12 m6">
+    <div class="card white darken- z-depth-2">
+         <div class="card-content center dark-grey-text">
+           <h5><%=i.origin.to_s %></h5>
+           <h5><%=i.destination.to_s %></h5>
+           <%= link_to 'View Trip', road_trips_display_path(road_trip_id: i.id) %>
+         </div>
+    </div>
+  </div>
+</div>
 <% end %>
+
+</div>
